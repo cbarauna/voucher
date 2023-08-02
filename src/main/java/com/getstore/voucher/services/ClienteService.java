@@ -23,17 +23,17 @@ public class ClienteService {
     private final ClienteMap map;
 
     public void incluir(List<ClienteDTO> clientes) {
-        if(clientes.isEmpty())
+        if (clientes.isEmpty())
             return;
         try {
-            var list = clientes.stream().map(cliente ->{
-                Cliente cli = map.entidade(cliente);
-                cli.setDataCriacao(LocalDateTime.now());
-                    return cli;
-            })
+            var list = clientes.stream()
+                    .map(cliente -> {
+                        var cli = map.entidade(cliente);
+                        cli.setDataCriacao(LocalDateTime.now());
+                        return cli;
+                    })
                     .collect(Collectors.toList());
-            var t =  repository.saveAll(list);
-            System.out.println(t);
+            repository.saveAll(list);
         } catch (DuplicateKeyException exception) {
             throw new RuntimeException(String.format("Erro ao incluir cliente - ERRO: %s",
                     exception.getMessage()));
@@ -41,13 +41,15 @@ public class ClienteService {
 
     }
 
-    public ClienteDTO  buscarPorEmail(String email) {
+    public void incluir(ClienteDTO cliente) {
+        repository.save(map.entidade(cliente));
+    }
+    public ClienteDTO buscarPorEmail(String email) {
         Cliente cliente = repository.findByEmail(email);
         return map.dto(cliente);
     }
 
     public List<Cliente> findAllClientes() {
-
         return repository.findAll();
     }
 }

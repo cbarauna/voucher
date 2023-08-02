@@ -14,8 +14,6 @@ import java.time.LocalDate;
 public class ClienteOfertaEmailDTO {
 
     private String codigoOferta;
-
     private String nomeOferta;
-
     private LocalDate dataValidade;
 }

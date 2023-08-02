@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "9f6fe3bc-d954-461b-b337-602345fe16d0",
+		"name": "Voucher",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "6697683"
+	},
+	"item": [
+		{
+			"name": "buscar voucher por email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/v1/api/voucher/lucia.rodrigues@example.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"api",
+						"voucher",
+						"lucia.rodrigues@example.com"
+					],
+					"query": [
+						{
+							"key": "codigo",
+							"value": "64c2fb8fdc2d5a5cd1c7713d",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar voucher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/v1/api/voucher/validar?email=maria.souza@example.com&codigo=64c2fb8fdc2d5a5cd1c7713d",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"api",
+						"voucher",
+						"validar"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "maria.souza@example.com"
+						},
+						{
+							"key": "codigo",
+							"value": "64c2fb8fdc2d5a5cd1c7713d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar cliente por email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/v1/api/cliente?email=ana.pereira@example.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"api",
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ana.pereira@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir Clientes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n  [\n    { \"nome\": \"João da Silva\", \"email\": \"joao.silva@example.com\" },\n    { \"nome\": \"Maria Souza\", \"email\": \"maria.souza@example.com\" },\n    { \"nome\": \"Pedro Oliveira\", \"email\": \"pedro.oliveira@example.com\" },\n    { \"nome\": \"Ana Pereira\", \"email\": \"ana.pereira@example.com\" },\n    { \"nome\": \"Carlos Santos\", \"email\": \"carlos.santos@example.com\" },\n    { \"nome\": \"Lúcia Rodrigues\", \"email\": \"lucia.rodrigues@example.com\" },\n    { \"nome\": \"Paulo Ferreira\", \"email\": \"paulo.ferreira@example.com\" },\n    { \"nome\": \"Mariana Almeida\", \"email\": \"mariana.almeida@example.com\" },\n    { \"nome\": \"Rafael Lima\", \"email\": \"rafael.lima@example.com\" },\n    { \"nome\": \"Luana Costa\", \"email\": \"luana.costa@example.com\" },\n    { \"nome\": \"Fernando Gomes\", \"email\": \"fernando.gomes@example.com\" },\n    { \"nome\": \"Camila Carvalho\", \"email\": \"camila.carvalho@example.com\" },\n    { \"nome\": \"Gustavo Martins\", \"email\": \"gustavo.martins@example.com\" },\n    { \"nome\": \"Isabela Nunes\", \"email\": \"isabela.nunes@example.com\" },\n    { \"nome\": \"Ricardo Mendes\", \"email\": \"ricardo.mendes@example.com\" },\n    { \"nome\": \"Carolina Ribeiro\", \"email\": \"carolina.ribeiro@example.com\" },\n    { \"nome\": \"Márcio Teixeira\", \"email\": \"marcio.teixeira@example.com\" },\n    { \"nome\": \"Larissa Oliveira\", \"email\": \"larissa.oliveira@example.com\" },\n    { \"nome\": \"Thiago Rodrigues\", \"email\": \"thiago.rodrigues@example.com\" },\n    { \"nome\": \"Amanda Sousa\", \"email\": \"amanda.sousa@example.com\" },\n    { \"nome\": \"Guilherme Santos\", \"email\": \"guilherme.santos@example.com\" },\n    { \"nome\": \"Lorena Fernandes\", \"email\": \"lorena.fernandes@example.com\" },\n    { \"nome\": \"Enzo Alves\", \"email\": \"enzo.alves@example.com\" },\n    { \"nome\": \"Natália Lima\", \"email\": \"natalia.lima@example.com\" },\n    { \"nome\": \"Matheus Costa\", \"email\": \"matheus.costa@example.com\" },\n    { \"nome\": \"Bianca Barbosa\", \"email\": \"bianca.barbosa@example.com\" },\n    { \"nome\": \"Leonardo Pereira\", \"email\": \"leonardo.pereira@example.com\" },\n    { \"nome\": \"Júlia Gonçalves\", \"email\": \"julia.goncalves@example.com\" },\n    { \"nome\": \"André Carvalho\", \"email\": \"andre.carvalho@example.com\" },\n    { \"nome\": \"Luiza Martins\", \"email\": \"luiza.martins@example.com\" },\n    { \"nome\": \"Victor Oliveira\", \"email\": \"victor.oliveira@example.com\" },\n    { \"nome\": \"Fernanda Ferreira\", \"email\": \"fernanda.ferreira@example.com\" },\n    { \"nome\": \"Lucas Almeida\", \"email\": \"lucas.almeida@example.com\" },\n    { \"nome\": \"Isabel Ramos\", \"email\": \"isabel.ramos@example.com\" },\n    { \"nome\": \"Arthur Mendes\", \"email\": \"arthur.mendes@example.com\" },\n    { \"nome\": \"Helena Ribeiro\", \"email\": \"helena.ribeiro@example.com\" },\n    { \"nome\": \"Eduardo Teixeira\", \"email\": \"eduardo.teixeira@example.com\" },\n    { \"nome\": \"Gabriela Oliveira\", \"email\": \"gabriela.oliveira@example.com\" },\n    { \"nome\": \"Marcelo Sousa\", \"email\": \"marcelo.sousa@example.com\" },\n    { \"nome\": \"Laura Santos\", \"email\": \"laura.santos@example.com\" },\n    { \"nome\": \"Daniel Fernandes\", \"email\": \"daniel.fernandes@example.com\" },\n    { \"nome\": \"Manuela Alves\", \"email\": \"manuela.alves@example.com\" },\n    { \"nome\": \"Raul Lima\", \"email\": \"raul.lima@example.com\" },\n    { \"nome\": \"Lara Carvalho\", \"email\": \"lara.carvalho@example.com\" },\n    { \"nome\": \"Vinícius Martins\", \"email\": \"vinicius.martins@example.com\" },\n    { \"nome\": \"Sophia Oliveira\", \"email\": \"sophia.oliveira@example.com\" },\n    { \"nome\": \"Henrique Gomes\", \"email\": \"henrique.gomes@example.com\" },\n    { \"nome\": \"Melissa Carvalho\", \"email\": \"melissa.carvalho@example.com\" }\n  ]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8081/v1/api/cliente"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar oferta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Oferta Especial\",\n    \"validade\": \"2023-07-31\",\n    \"desconto\": 80\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8081/v1/voucher/oferta/incluir"
+			},
+			"response": []
+		}
+	]
+}

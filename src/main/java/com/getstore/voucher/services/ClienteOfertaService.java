@@ -33,14 +33,22 @@ public class ClienteOfertaService {
         ClienteOferta clienteOferta = repository.findByCliente_EmailAndOferta_Codigo(email, codigo);
 
         return Optional.ofNullable(clienteOferta).map(oferta -> {
-            if (Objects.nonNull(oferta.getDataUso())) {
-                throw new RuntimeException("Voucher já utilizado!");
-            }
+            validarVoucher(oferta);
             atualizarOfertaCliente(oferta);
             return mapper.dto(oferta);
         }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Voucher Não encontrado para os dados informados"));
 
+    }
+
+    private static void validarVoucher(ClienteOferta oferta) {
+        if (Objects.nonNull(oferta.getDataUso())) {
+            throw new RuntimeException("Voucher já utilizado!");
+        }
+        if (Objects.nonNull(oferta.getOferta())&& oferta.getOferta()
+                .getValidade().isBefore(LocalDate.now())) {
+            throw new RuntimeException("Voucher vencido!");
+        }
     }
 
     public void atualizarOfertaCliente(ClienteOferta clienteOferta) {
@@ -55,7 +63,6 @@ public class ClienteOfertaService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                     "Nenhum Voucher encontrado para os dados informados");
         }
-
         return ofertas.stream().map(mapper::clienteOfertaEmail)
                 .collect(Collectors.toList());
 

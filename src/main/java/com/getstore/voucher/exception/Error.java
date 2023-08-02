@@ -1,7 +1,14 @@
 package com.getstore.voucher.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Error {
     private LocalDateTime data;
     private Integer estatus;

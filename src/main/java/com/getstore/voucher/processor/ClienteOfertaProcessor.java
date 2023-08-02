@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 @Component
 public class ClienteOfertaProcessor {
 
-
     private final ClienteService clienteService;
     private final ClienteOfertaService ofertaService;
 
@@ -23,13 +22,12 @@ public class ClienteOfertaProcessor {
 
     public void criarOfertaCliente(Oferta oferta) {
         var clientes = clienteService.findAllClientes();
-        var clienteOfertas = clientes.stream().map(cliente -> {
-            ClienteOferta clienteOferta = new ClienteOferta();
-            clienteOferta.setOferta(oferta);
-            clienteOferta.setCliente(cliente);
-            clienteOferta.setDataCriacao(LocalDateTime.now());
-            return clienteOferta;
-        }).collect(Collectors.toList());
+        var clienteOfertas = clientes.stream().map(cliente ->
+                ClienteOferta.builder()
+               .oferta(oferta)
+               .cliente(cliente)
+               .dataCriacao(LocalDateTime.now())
+               .build()).collect(Collectors.toList());
         ofertaService.criarOferta(clienteOfertas);
     }
 }
