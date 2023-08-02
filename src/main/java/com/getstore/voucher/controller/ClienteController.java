@@ -2,10 +2,8 @@ package com.getstore.voucher.controller;
 
 import com.getstore.voucher.exception.Error;
 import com.getstore.voucher.model.dto.ClienteDTO;
-import com.getstore.voucher.model.dto.ClienteOfertaEmailDTO;
 import com.getstore.voucher.services.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
